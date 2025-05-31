@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/leitor.css">
+    <title>Página de Login</title>
+</head>
+
+<body>
+  
+
+    <div class="container">
+        <h2>Login Aluno</h2>
+        <form action="validalogin.php" method="post">
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+
+            <form method="post" action="cadastrar_f.php">
+            <button type="submit">Entrar</button><br>
+    </form>
+        </form>
+
+        <form method="post" action="editar_excluir_f.php">
+        <button type="submit">Enditar/Excluir</button>
+</form><br>
+
+        <a href="../html/cad1.html">
+        <h5>Fazer Cadastro</h5>
+        </a>
+
+
+</body>
+</html>

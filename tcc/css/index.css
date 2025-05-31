@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 90vh;
+  font-family: Arial, sans-serif;
+  background-color: #f0d0f5;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3a1242;
+  padding: 15px 20px;
+}
+
+.logo {
+  color: rgb(232, 180, 236);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li a {
+  color: rgb(232, 180, 236);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu li a:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #e8b1f0;
+  border-radius: 50px;
+  padding: 2px;
+  width: 600px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 50px 0 0 50px;
+  font-size: 16px;
+  color: #3a1242;
+  background: none;
+  outline: none;
+}
+
+.search-box input::placeholder {
+  color: #3a1242;
+  opacity: 0.6;
+}
+
+.search-box button {
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: #3a1242;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box button i {
+  color: #3a1242;
+  font-weight: bold;
+}
+
+.search-box-icone {
+
+margin: auto;
+color: #fff;
+
+}
+
+
+@media screen and (min-width: 200px){
+
+.search-box:hover .search-box-input {
+width: 370px;
+}
+
+}
+.botao:hover {
+    background-color: rgb(182, 84, 228);
+
+}
+
+.search-box:hover .search-box-input {
+
+padding-left: 2em;
+padding-right: 1em;
+width: 300px;
+
+}
+

@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+*{
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  font-family: "Zilla Slab", serif;
+}
+
+
+
+.sidebar_menup{
+  height: 104vh;
+  width: 300px;
+  background-color: #3a1242;
+  position: absolute;
+  overflow: hidden;
+  right: -300px;
+  left: 0px;
+  float: left;
+  display: flex;
+ 
+
+
+}
+
+.sidebar_titulop{
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  box-shadow: 0px 2px 4px #6e38382e; 
+  right: 150px;
+}
+.sidebar_menup a{
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  position: absolute;
+  left: 20px;
+  line-height:60px;
+  
+}
+.sidebar_menup .menu{
+  position: absolute;
+  top: 80px;
+  width: 100%;
+
+}
+.sidebar_menup .menu li{
+  margin: 10px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+  background-color: #fff;
+}
+.sidebar_menup .menu li:hover{
+  background-color: rgb(224, 178, 228);
+  width: 200px;
+
+}
+.sidebar_menup .menu i{
+  color: #fff;
+  font-size: 20px;
+  padding-right: none;
+  font-size: 20px;
+
+}
+.sidebar_menup .menu a{
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+
+}
+.sidebar_menup .photo-container{
+  left: 100px;
+}
