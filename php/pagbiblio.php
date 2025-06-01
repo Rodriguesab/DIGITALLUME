@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../css/index.css">
   <link rel="stylesheet" href="../css/menu.css" >
   <link rel="stylesheet" href="../css/barra.css">
+  <link rel="stylesheet" href="../css/rodape.css">
   
   
   
@@ -103,7 +104,7 @@
 
            <div class="photo-container">
         
-             <img src="imagem.png" 
+             <img src="../img/logocilb.png" 
               height="250"
               width="280">
 
@@ -152,3 +153,23 @@ if ($result === false) {
 
 
  ?>
+
+ <footer> <div class="footerContainer">
+       <div class="socialIcons">
+            <a href="https://www.instagram.com/cil.brazlandia/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://linktr.ee/cilb" target="_blank"><i class="fa-brands fa-google"></i></a>
+            <a href="https://www.youtube.com/@cilbrazlandia218" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="footerNav">
+            <ul>
+                <li>Intragram: @cil.brazlandia</li>
+                <li>Outras informações:linktr.ee/cilb </li>
+                <li>Youtube: cilbrazlandia218</li>
+            </ul>
+        </div>
+         <a class="logoembaixo" href="../php/cilbinicial.php"><img src="../img/imagem.png" alt="" width="500" height="500"></a>
+    </div> 
+   
+    <div class="footerBottom">
+        <p>Copyright &copy;2025; Designed by <span class="designer">LumeDigital</span></p>
+    </div></footer>
