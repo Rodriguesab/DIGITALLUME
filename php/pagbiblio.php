@@ -49,17 +49,22 @@
             <br><br><br>
             <li>
                 <i class="fa-solid fa-user"></i>
-                <a href="leitor.php">Alunos</a>
+                <a href="tabelaleitores.php">Alunos</a>
             </li>
             <br><br>
             <li>
                 <i class="fa-solid fa-book"></i>
-                <a href="paglivros.php">cadastrar Livros</a>
+                <a href="../html/paglivros.html">cadastrar Livros</a>
             </li>
             <br><br>
             <li>
-                <i class="fas fa-stream"></i>
-                <a href="#">Mensagem</a>
+                <i class="fas fa-new"></i>
+                <a href="livrostabela.php">acervo</a>
+            </li>
+            <br><br>
+            <li>
+                <i class="fas fa-"></i>
+                <a href="">Mensagem</a>
             </li>
             <br><br>
             
@@ -119,6 +124,8 @@
   <center>
 
   
+  
+  
   <?php
       $servername = "localhost";
       $username = "lumedigital";
@@ -134,7 +141,7 @@
 
       $termo = $_POST['pesquisa'];
 
-      $sql = "SELECT * FROM planilha1 WHERE Nome LIKE'%" . $termo . "%'";
+      $sql = "SELECT * FROM livros1 WHERE id LIKE'%" . $termo . "%'";
 
       $resultado = $conn->query($sql);
       $result = $conn->query($sql);
@@ -143,7 +150,7 @@ if ($result === false) {
     echo "Erro na consulta: " . $conn->error;
 } elseif ($result->num_rows > 0) { 
     while ($row = $result->fetch_assoc()) {
-        echo "LIVRO EXISTENTE: " . $row["Nome"] . "<br>";
+        echo "LIVRO EXISTENTE: " . $row["id"] . "<br>";
     }
 } else {
 

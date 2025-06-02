@@ -6,13 +6,7 @@ $cpf = $_POST['cpf'];
 $s_phone = $_POST['phone'];
 $senha = $_POST['senha'];
 
-// Exibe dados recebidos
-echo "Seu nome: $name <br/>";
-echo "Seu e-mail: $email <br/>";
-echo "Sua data de nascimento: $date_birth <br/>";
-echo "Seu cpf: $cpf <br/>";
-echo "Seu telefone: $s_phone <br/>";
-echo "Sua senha: $senha <br/>";
+
 
 try {
     // Conexão com o banco usando PDO

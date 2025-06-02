@@ -1,58 +1,56 @@
 <?php
-// Configuração do banco
 $host = 'localhost';
 $dbname = 'lumedigital';
 $user = 'root';
 $pass = '';
 
 try {
-    // Conexão PDO
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Erro na conexão: " . $e->getMessage());
 }
 
-// Processa atualização (edição)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['salvar'])) {
     $id = $_POST['id'];
+    $codigo_livro = $_POST['codigo_livro'];
     $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $cpf = $_POST['cpf'];
-    $telefone = $_POST['telefone'];
+    $autor = $_POST['autor'];
+    $idioma = $_POST['idioma'];
+    $unidade = $_POST['unidade'];
+    $descricao = $_POST['descricao'];
+    $imagem = $_POST['imagem'];
 
-    $sql = "UPDATE alunos SET nome = :nome, email = :email, cpf = :cpf, telefone = :telefone WHERE id = :id";
+    $sql = "UPDATE livros SET codigo_livro = :codigo_livro, nome = :nome, autor = :autor, idioma = :idioma, unidade = :unidade, descricao = :descricao, imagem = :imagem WHERE id = :id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
+        ':codigo_livro' => $codigo_livro,
         ':nome' => $nome,
-        ':email' => $email,
-        ':cpf' => $cpf,
-        ':telefone' => $telefone,
+        ':autor' => $autor,
+        ':idioma' => $idioma,
+        ':unidade' => $unidade,
+        ':descricao' => $descricao,
+        ':imagem' => $imagem,
         ':id' => $id
     ]);
-    header("Location: alunos.php");
+    header("Location: livros.php");
     exit;
 }
-
-// Processa exclusão
 if (isset($_GET['excluir'])) {
     $id = $_GET['excluir'];
-    $stmt = $pdo->prepare("DELETE FROM alunos WHERE id = :id");
+    $stmt = $pdo->prepare("DELETE FROM livros WHERE id = :id");
     $stmt->execute([':id' => $id]);
-    header("Location: alunos.php");
+    header("Location: livros.php");
     exit;
 }
-
-// Consulta todos os alunos
-$stmt = $pdo->prepare("SELECT * FROM alunos");
+$stmt = $pdo->prepare("SELECT * FROM livros");
 $stmt->execute();
-$alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$livros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Se estiver editando, pega os dados do aluno
 $editando = null;
 if (isset($_GET['editar'])) {
     $id = $_GET['editar'];
-    $stmt = $pdo->prepare("SELECT * FROM alunos WHERE id = :id");
+    $stmt = $pdo->prepare("SELECT * FROM livros WHERE id = :id");
     $stmt->execute([':id' => $id]);
     $editando = $stmt->fetch(PDO::FETCH_ASSOC);
 }
@@ -62,7 +60,7 @@ if (isset($_GET['editar'])) {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8" />
-    <title>Gerenciar Alunos</title>
+    <title>Gerenciar Livros</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -77,7 +75,7 @@ if (isset($_GET['editar'])) {
             background: #ab97d1;
             padding: 20px;
             border-radius: 8px;
-            width: 850px;
+            width: 1000px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         table {
@@ -139,53 +137,73 @@ if (isset($_GET['editar'])) {
 <body>
 <div class="container">
     <table>
-        <caption>Lista de Alunos</caption>
+        <caption>Lista de Livros</caption>
         <thead>
         <tr>
             <th>ID</th>
+            <th>Código do Livro</th>
             <th>Nome</th>
-            <th>E-mail</th>
-            <th>CPF</th>
-            <th>Telefone</th>
+            <th>Autor</th>
+            <th>Idioma</th>
+            <th>Unidade</th>
+            <th>Descrição</th>
+            <th>Imagem</th>
             <th>Ações</th>
         </tr>
         </thead>
         <tbody>
-        <?php if (count($alunos) > 0): ?>
-            <?php foreach ($alunos as $aluno): ?>
+        <?php if (count($livros) > 0): ?>
+            <?php foreach ($livros as $livro): ?>
                 <tr>
-                    <td><?= $aluno['id'] ?></td>
-                    <td><?= htmlspecialchars($aluno['nome']) ?></td>
-                    <td><?= htmlspecialchars($aluno['email']) ?></td>
-                    <td><?= htmlspecialchars($aluno['cpf']) ?></td>
-                    <td><?= htmlspecialchars($aluno['telefone']) ?></td>
+                    <td><?= $livro['id'] ?></td>
+                    <td><?= htmlspecialchars($livro['codigo_livro']) ?></td>
+                    <td><?= htmlspecialchars($livro['nome']) ?></td>
+                    <td><?= htmlspecialchars($livro['autor']) ?></td>
+                    <td><?= htmlspecialchars($livro['idioma']) ?></td>
+                    <td><?= htmlspecialchars($livro['unidade']) ?></td>
+                    <td><?= htmlspecialchars($livro['descricao']) ?></td>
+                    <td><?= htmlspecialchars($livro['imagem']) ?></td>
                     <td>
-                        <a href="alunos.php?editar=<?= $aluno['id'] ?>">Editar</a> |
-                        <a href="alunos.php?excluir=<?= $aluno['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir este aluno?')">Excluir</a>
+                        <a href="livros.php?editar=<?= $livro['id'] ?>">Editar</a> |
+                        <a href="livros.php?excluir=<?= $livro['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir este livro?')">Excluir</a>
                     </td>
                 </tr>
             <?php endforeach; ?>
         <?php else: ?>
-            <tr><td colspan="6">Nenhum aluno encontrado.</td></tr>
+            <tr><td colspan="9">Nenhum livro encontrado.</td></tr>
         <?php endif; ?>
         </tbody>
     </table>
+    <div style="margin-top: 20px; text-align: right;">
+        <a href="form_livro.php">
+            <button>Adicionar Novos Livros</button>
+        </a>
+    </div>
 
     <?php if ($editando): ?>
-        <h3>Editar Aluno (ID <?= $editando['id'] ?>)</h3>
-        <form method="post" action="alunos.php">
+        <h3>Editar Livro (ID <?= $editando['id'] ?>)</h3>
+        <form method="post" action="livros.php">
             <input type="hidden" name="id" value="<?= $editando['id'] ?>" />
+            <label>Código do Livro:</label><br />
+            <input type="text" name="codigo_livro" value="<?= htmlspecialchars($editando['codigo_livro']) ?>" required /><br />
+
             <label>Nome:</label><br />
             <input type="text" name="nome" value="<?= htmlspecialchars($editando['nome']) ?>" required /><br />
 
-            <label>E-mail:</label><br />
-            <input type="email" name="email" value="<?= htmlspecialchars($editando['email']) ?>" required /><br />
+            <label>Autor:</label><br />
+            <input type="text" name="autor" value="<?= htmlspecialchars($editando['autor']) ?>" required /><br />
 
-            <label>CPF:</label><br />
-            <input type="text" name="cpf" value="<?= htmlspecialchars($editando['cpf']) ?>" required /><br />
+            <label>Idioma:</label><br />
+            <input type="text" name="idioma" value="<?= htmlspecialchars($editando['idioma']) ?>" required /><br />
 
-            <label>Telefone:</label><br />
-            <input type="text" name="telefone" value="<?= htmlspecialchars($editando['telefone']) ?>" required /><br />
+            <label>Unidade:</label><br />
+            <input type="text" name="unidade" value="<?= htmlspecialchars($editando['unidade']) ?>" required /><br />
+
+            <label>Descrição:</label><br />
+            <input type="text" name="descricao" value="<?= htmlspecialchars($editando['descricao']) ?>" required /><br />
+
+            <label>Imagem:</label><br />
+            <input type="text" name="imagem" value="<?= htmlspecialchars($editando['imagem']) ?>" required /><br />
 
             <button type="submit" name="salvar">Salvar Alterações</button>
         </form>

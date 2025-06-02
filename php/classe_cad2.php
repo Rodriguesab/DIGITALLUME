@@ -7,14 +7,7 @@ $s_phone = $_POST['phone'];
 $senha = $_POST['senha'];
 $codigo = $_POST['codigo'];
 
-// Exibe dados recebidos
-echo "Seu nome: $name <br/>";
-echo "Seu e-mail: $email <br/>";
-echo "Sua data de nascimento: $date_birth <br/>";
-echo "Seu cpf: $cpf <br/>";
-echo "Seu telefone: $s_phone <br/>";
-echo "Sua senha: $senha <br/>";
-echo "Código Institucional: $codigo <br/>";
+
 
 try {
     // Conexão com PDO

@@ -62,7 +62,7 @@ if (isset($_GET['editar'])) {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8" />
-    <title>Cadastro de Alunos</title>
+    <title>Gerenciar Alunos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -139,7 +139,7 @@ if (isset($_GET['editar'])) {
 <body>
 <div class="container">
     <table>
-        <caption>Cadastro de Alunos</caption>
+        <caption>Lista de Alunos</caption>
         <thead>
         <tr>
             <th>ID</th>
