@@ -175,7 +175,7 @@ if (isset($_GET['editar'])) {
         </tbody>
     </table>
     <div style="margin-top: 20px; text-align: right;">
-        <a href="form_livro.php">
+        <a href="../html/paglivros.html">
             <button>Adicionar Novos Livros</button>
         </a>
     </div>

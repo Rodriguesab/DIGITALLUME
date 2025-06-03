@@ -58,12 +58,12 @@
             </li>
             <br><br>
             <li>
-                <i class="fas fa-new"></i>
+                <i class="fas fa-book"></i>
                 <a href="livrostabela.php">acervo</a>
             </li>
             <br><br>
             <li>
-                <i class="fas fa-"></i>
+                <i class="fas fa-message"></i>
                 <a href="">Mensagem</a>
             </li>
             <br><br>
@@ -174,7 +174,7 @@ if ($result === false) {
                 <li>Youtube: cilbrazlandia218</li>
             </ul>
         </div>
-         <a class="logoembaixo" href="../php/cilbinicial.php"><img src="../img/imagem.png" alt="" width="500" height="500"></a>
+         <a class="logoembaixo" href="pagbiblio.php"><img src="../img/imagem.png" alt="" width="500" height="500"></a>
     </div> 
    
     <div class="footerBottom">
