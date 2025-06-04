@@ -1,10 +1,18 @@
 <?php
-// Configuração do banco
-$host = 'localhost';
-$dbname = 'lumedigital';
-$user = 'root';
-$pass = '';
+require_once 'classe_pessoa.php'; // para executar a classe
+$p = new pessoa("lumedigital","localhost","root","");  // instanciando
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<title>PROJETO CRUD_PDO</title>
 
+
+</head>
+<body>
+
+<?php
 try {
     // Conexão PDO
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
