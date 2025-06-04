@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../css/menu.css" >
   <link rel="stylesheet" href="../css/barra.css">
   <link rel="stylesheet" href="../css/rodape.css">
-  <link rel="php" href="../php/pesquisa.php">
+  
   
   
   

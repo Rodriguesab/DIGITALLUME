@@ -1,6 +1,6 @@
 <?php
 require_once 'classe_tabacervo.php'; // para executar a classe
-$p = new tabacervo ("crudpdo","localhost","root","");  // instanciando
+$p = new tabacervo ("alunos","localhost","root","");  // instanciando
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

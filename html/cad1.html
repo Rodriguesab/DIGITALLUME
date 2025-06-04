@@ -13,7 +13,7 @@
 <h2>Cadastro Aluno </h2>
 
 
-<form method="post" action="../php/classe_pessoa.php">
+<form method="post" action="../php/controle_cad1.php">
 
 <label for="name"> NOME: </label>
 <input type="text" id="name" name="name" size="50" maxlength="50" /> <br>
@@ -88,6 +88,19 @@
 <button type="submit">Cadastrar</button><br>
 </form>
 
+  <?php
+if(isset($_GET['ja_cadastrado']))
+{
+	echo "Usuário já cadastrado";
+}
+
+if(isset($_GET['branco'])) // && $_GET['branco'] == 'branc')
+{
+	echo "Preencha todos os campos";
+}
+
+
+?>
 
 
 
