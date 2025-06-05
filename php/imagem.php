@@ -7,6 +7,9 @@ class Livro
     {
         $dbname = 'lumedigital';
         $host = 'localhost';       
+
+
+
         $user = 'seu_usuario';     
         $senha = '';      
 
